@@ -178,6 +178,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         'HTC Corporation',
         'Samsung Electronics Co.,Ltd',
         'SAMSUNG ELECTRO-MECHANICS(THAILAND)',
+        'Yulong Computer Telecommunication Scientific (Shenzhen) Co.,Ltd',
         'BlackBerry RTS',
         'LG ELECTRONICS INC',
         'Apple, Inc.',
