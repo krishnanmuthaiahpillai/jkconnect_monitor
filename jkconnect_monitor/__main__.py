@@ -185,7 +185,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         'Alcatel-Lucent Shanghai Bell Co., Ltd',
         'AMOI ELECTRONICS CO.,LTD',
         'BBK EDUCATIONAL ELECTRONICS CORP.,LTD.',
-        'Gionee Communication Equipment Co.,Ltd.,
+        'Gionee Communication Equipment Co.,Ltd.',
         'Qingdao Haier Telecom Co.\uff0cLtd',
         'Haier',
         'QING DAO HAIER TELECOM CO.,LTD.',
