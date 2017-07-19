@@ -8,7 +8,7 @@ setup(
     author='krishnan',
     url='https://github.com/krishnanmuthaiahpillai/jkconnect_monitor',
     author_email='krishnanmuthaiahpillai@gmail.com',
-    download_url='https://github.com/krishnanmuthaiahpillai/jkconnect_monitor/archive/v1.0.tar.gz',
+    download_url='https://github.com/krishnanmuthaiahpillai/jkconnect_monitor/archive/v2.0.tar.gz',
     keywords=['tshark', 'wifi', 'location'],
     classifiers=[],
     install_requires=[
