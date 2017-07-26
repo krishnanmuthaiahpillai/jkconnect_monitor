@@ -261,12 +261,14 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
             data_dump = {'cellphones': cellphone_people, 'time': time.time()}
             print data_dump
             f.write(json.dumps(data_dump) + "\n")
-    else:
-            print 'NO OUT'
-        
         if verbose:
             print("Wrote %d records to %s" % (len(cellphone_people), out))
+    else:
+        print 'No out'  
+              
     os.remove('/tmp/tshark-temp')
+    
+
 
 
 if __name__ == '__main__':
