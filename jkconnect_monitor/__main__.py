@@ -60,7 +60,7 @@ def showTimer(timeleft):
 @click.option('-v', '--verbose', help='verbose mode', is_flag=True)
 @click.option('--number', help='just print the number', is_flag=True)
 @click.option('-j', '--jsonprint', help='print JSON of cellphone data', is_flag=True)
-@click.option('-n', '--nearby', help='only quantify signals that are nearby (rssi > -70)', is_flag=True)
+@click.option('-n', '--nearby', help='only quantify signals that are nearby (rssi > -50)', is_flag=True)
 @click.option('--allmacaddresses', help='do not check MAC addresses against the OUI database to only recognize known cellphone manufacturers', is_flag=True)  # noqa
 @click.option('--nocorrection', help='do not apply correction', is_flag=True)
 @click.option('--loop', help='loop forever', is_flag=True)
@@ -268,10 +268,10 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         print 'No out'
         data_dump = {'cellphones': cellphone_people, 'time': time.time()}
         #print 'INSERT DB HERE'
-        jk_db.parse_data(json.dumps(data_dump))  
+        jk_db.parse_data(json.dumps(data_dump))
 
     os.remove('/tmp/tshark-temp')
-    
+
 
 
 
