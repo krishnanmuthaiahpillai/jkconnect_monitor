@@ -266,7 +266,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
     else:
         print 'No out'
         data_dump = {'cellphones': cellphone_people, 'time': time.time()}
-        print data_dump  
+        print 'INSERT DB HERE'  
 
     os.remove('/tmp/tshark-temp')
     
