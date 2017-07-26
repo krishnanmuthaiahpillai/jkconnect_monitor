@@ -1,7 +1,7 @@
 import json
 def parse_data(data_dump):
     #print data_dump
-    parsed_input = json.load(data_dump)
+    parsed_input = json.loads(data_dump)
     cellphones = parsed_input['cellphones']
     print cellphones
 

@@ -268,7 +268,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         print 'No out'
         data_dump = {'cellphones': cellphone_people, 'time': time.time()}
         #print 'INSERT DB HERE'
-        jk_db.parse_data(data_dump)  
+        jk_db.parse_data(json.dumps(data_dump))  
 
     os.remove('/tmp/tshark-temp')
     
