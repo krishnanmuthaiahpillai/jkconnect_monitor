@@ -230,7 +230,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
         if verbose:
             print(mac, oui_id, oui_id in cellphone)
         if allmacaddresses or oui_id in cellphone:
-            if not nearby or (nearby and foundMacs[mac] > -70):
+            if not nearby or (nearby and foundMacs[mac] > -50):
                 cellphone_people.append(
                     {'company': oui_id, 'rssi': foundMacs[mac], 'mac': mac})
     if sort:
