@@ -1,7 +1,7 @@
 import json
 def parse_data(data_dump):
     #print data_dump
-    #parsed_input = json.loads(data_dump)
+    parsed_input = json.loads(data_dump)
     print parsed_input
 
 if __name__ == '__main__':
