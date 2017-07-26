@@ -259,6 +259,7 @@ def scan(adapter, scantime, verbose, number, nearby, jsonprint, out, allmacaddre
     if out:
         with open(out, 'a') as f:
             data_dump = {'cellphones': cellphone_people, 'time': time.time()}
+            print data_dump
             f.write(json.dumps(data_dump) + "\n")
         if verbose:
             print("Wrote %d records to %s" % (len(cellphone_people), out))
