@@ -9,7 +9,8 @@ def parse_data(data_dump):
    cellphones = parsed_input['cellphones']
    for element in parsed_input['cellphones']:
          company = element['company']
-         time = datetime.datetime.fromtimestamp(int(parsed_input['time'])).strftime('%Y-%m-%d %H:%M:%S')
+         #time = datetime.datetime.fromtimestamp(int(parsed_input['time'])).strftime('%Y-%m-%d %H:%M:%S')
+         time = str(parsed_input['time'])
          rssi=element['rssi']
          mac=element['mac']
          check_field_already_exist_in_database(rssi,company,mac,time)
