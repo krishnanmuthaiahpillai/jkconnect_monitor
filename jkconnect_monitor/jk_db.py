@@ -22,7 +22,8 @@ def parse_data(data_dump):
 # retrive the data from DataBase
 def retrive_data_from_database():
   try:
-   conn = sqlite3.connect('jkconnect.db')
+   path = '/home/pi/jkconnect.db'
+   conn = sqlite3.connect(path)
    print "Opened database successfully";
    cursor = conn.execute("SELECT MAC, COMPANY, RSSI, TIME from CONNECT")
    for row in cursor:
@@ -41,7 +42,8 @@ def retrive_data_from_database():
 # Check with MAC address which already exists.
 def check_field_already_exist_in_database(rssi,company,mac,time ):
   try:
-    conn = sqlite3.connect('jkconnect.db')
+    path = '/home/pi/jkconnect.db'
+    conn = sqlite3.connect(path)
     conn.execute('''CREATE TABLE IF NOT EXISTS CONNECT
          (MAC TEXT PRIMARY KEY     NOT NULL,
          COMPANY           TEXT    NOT NULL,
@@ -69,7 +71,8 @@ def check_field_already_exist_in_database(rssi,company,mac,time ):
 # Normally Insert field into database with Mac,rssi,company,time
 def normal_insert_field_into_database(rssi,company,mac,time ):
   try:
-    conn = sqlite3.connect('jkconnect.db')
+    path = '/home/pi/jkconnect.db'
+    conn = sqlite3.connect(path)
     conn.execute('''CREATE TABLE IF NOT EXISTS CONNECT
          (MAC TEXT PRIMARY KEY     NOT NULL,
          COMPANY           TEXT    NOT NULL,
@@ -93,7 +96,8 @@ def normal_insert_field_into_database(rssi,company,mac,time ):
 # Normally Insert field into database with Mac,rssi,company,time
 def time_insert_field_into_database(rssi,company,mac,time ):
   try:
-    conn = sqlite3.connect('jkconnect.db')
+    path = '/home/pi/jkconnect.db'
+    conn = sqlite3.connect(path)
     conn.execute('''CREATE TABLE IF NOT EXISTS CONNECT
          (MAC TEXT PRIMARY KEY     NOT NULL,
          COMPANY           TEXT    NOT NULL,
