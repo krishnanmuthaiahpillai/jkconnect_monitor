@@ -15,27 +15,27 @@ def parse_data(data_dump):
          mac=element['mac']
          check_field_already_exist_in_database(rssi,company,mac,time)
 
-   retrive_data_from_database()
+   #retrive_data_from_database()
 
 
 # Retrive Data :
 # retrive the data from DataBase
-def retrive_data_from_database():
-  try:
-   path = '/home/pi/jkconnect.db'
-   conn = sqlite3.connect(path)
-   print "Opened database successfully";
-   cursor = conn.execute("SELECT MAC, COMPANY, RSSI, TIME from CONNECT")
-   for row in cursor:
-      print "MAC = ", row[0]
-      print "COMPANY = ", row[1]
-      print "RSSI = ", row[2]
-      print "TIME = ", row[3], "\n"
-      print 'HELLO'
-  except Exception as e:
-    print e
-  finally:
-    conn.close()
+# def retrive_data_from_database():
+#   try:
+#    path = '/home/pi/jkconnect.db'
+#    conn = sqlite3.connect(path)
+#    print "Opened database successfully";
+#    cursor = conn.execute("SELECT MAC, COMPANY, RSSI, TIME from CONNECT")
+#    for row in cursor:
+#       print "MAC = ", row[0]
+#       print "COMPANY = ", row[1]
+#       print "RSSI = ", row[2]
+#       print "TIME = ", row[3], "\n"
+#       print 'HELLO'
+#   except Exception as e:
+#     print e
+#   finally:
+#     conn.close()
 
 
 # Check Fields Already Exist in Database
@@ -103,11 +103,16 @@ def time_insert_field_into_database(rssi,company,mac,time ):
          COMPANY           TEXT    NOT NULL,
          RSSI            TEXT     NOT NULL,
          TIME         TEXT);''')
-    cursor = conn.execute("SELECT TIME from CONNECT where MAC=(?)", (mac,))
-    old_time =cursor.fetchone()[0]
-    list_of_strings= [str(old_time),str(time)]
-    join_time=':$:'.join(list_of_strings)
+    time_cursor = conn.execute("SELECT TIME from CONNECT where MAC=(?)", (mac,))
+    rssi_cursor = conn.execute("SELECT RSSI from CONNECT where MAC=(?)", (mac,))
+    old_time =time_cursor.fetchone()[0]
+    old_rssi=rssi_cursor.fetchone()[0]
+    time_list= [str(old_time),str(time)]
+    rssi_list=[str(old_rssi),str(rssi)]
+    join_time=':$:'.join(time_list)
+    join_rssi=':$:'.join(rssi_list)
     conn.execute("UPDATE CONNECT SET TIME = (?) WHERE MAC= (?)",(join_time, mac))
+    conn.execute("UPDATE CONNECT SET RSSI = (?) WHERE MAC= (?)",(join_rssi, mac))
     conn.commit()
     conn.close()
 
